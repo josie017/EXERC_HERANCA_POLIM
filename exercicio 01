@@ -1,0 +1,54 @@
+1 - Nesse exercício, a classe Veiculo, que no caso será a classe pai, abrange um escopo vasto, pois se pensar em um Veículo ter vários tipos diferentes deles, desde uma moto até um ônibus espacial. Agora, utilizando o paradigma de orientação a objetos, é possível ver que qualquer veículo possui uma velocidade e também um dos benefícios do mesmo é possuir um ou mais lugares para carregar pessoas, ou seja, sabendo que todos os veículos, por lei, possuem as características citadas, porém cada um tem a sua especificação própria.
+
+Implemente as classes representadas abaixo, utilizando os conceitos de herança e polimorfismo, e demonstre a sua utilização implementando os 4 objetos ilustrados abaixo:
+
+/* Priscila e Josie (t30) - ex 1 */
+
+<?php
+  class Veiculo{
+    public $modelo;
+    public $velocidade;
+    public $passageiros;
+    public $combustivel;
+  }
+
+  class Carro extends Veiculo{
+    public $ano;
+    public $portas;
+
+    public function __construct($modelo, $velocidade, $passageiros, $combustivel, $ano, $portas){
+    $this->modelo=$modelo;
+    $this->velocidade=$velocidade;
+    $this->passageiros=$passageiros;
+    $this->combustivel=$combustivel;
+    $this->ano=$ano;
+    $this->portas=$portas;
+    }
+  }
+
+  class Aviao extends Veiculo{
+    public $uso;
+    public $tipo;
+
+    public function __construct($modelo, $velocidade, $passageiros, $combustivel, $uso, $tipo){
+    $this->modelo=$modelo;
+    $this->velocidade=$velocidade;
+    $this->passageiros=$passageiros;
+    $this->combustivel=$combustivel;
+    $this->uso=$uso;
+    $this->tipo=$tipo;
+    }
+  }
+
+  $carro = new Carro("x", "60 km/h", 2, "gasolina", 2018, 2);
+  print_r($carro);
+  $carro2 = new Carro("y", "40 km/h", 1, "gasolina", 1990, 2);
+  print_r($carro2);
+
+  $aviao = new Aviao("W", "650 km/h", 15, "querosene", "comercial", "a jato");
+  print_r($aviao);
+
+  $aviao2 = new Aviao("Z", "450 km/h", 10, "querosene", "pessoal", "turboélice");
+  print_r($aviao2);
+  
+?>
