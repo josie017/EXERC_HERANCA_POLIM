@@ -1,0 +1,55 @@
+5 - Resolva a seguinte situação utilizando os conceitos aprendidos. Crie a classe Imovel, que possui um endereço e um preço. 
+5.1 - crie uma classe Novo, que herda Imovel e possui um adicional no preço. 
+      Crie métodos de acesso e impressão deste valor adicional.
+5.2 - Crie uma classe Velho, que herda Imovel e possui um desconto no preço. 
+      Crie métodos de acesso e impressão para este desconto.
+
+/* Priscila Volpato e Josie Reinaço - exercício 5 */
+
+<?php 
+
+class Imovel{
+  public $endereco;
+  public $preco;
+}
+
+class Novo extends Imovel{
+  public $adicional;
+
+  public function __construct($endereco, $preco){
+    $this->endereco=$endereco;
+    $this->preco=$preco;
+  }
+
+  public function ajustepreco(){
+    $this->preco=$this->preco+(($this->preco*20)/100);
+  }
+
+}
+
+class Velho extends Imovel{
+  public $desc;
+
+  public function __construct($endereco, $preco){
+    $this->endereco=$endereco;
+    $this->preco=$preco;
+  }
+
+  public function descpreco(){
+    $this->preco=$this->preco-(($this->preco*20)/100); 
+  }
+}
+
+$casa1 = new Novo("rua x", 100000);
+echo "Esta casa está localizada em {$casa1->endereco} e originalmente vale R$ {$casa1->preco} \n";
+$casa1->ajustepreco();
+echo "O valor ajustado é de {$casa1->preco}";
+
+echo "\n";
+
+$casa2 = new Velho("rua Y", 80000);
+echo "Esta casa está localizada em {$casa2->endereco} e originalmente vale R$ {$casa2->preco} \n";
+$casa2->descpreco();
+echo "O valor ajustado é de {$casa2->preco}";
+echo "\n";
+?>
