@@ -1,0 +1,97 @@
+4 - Implemente uma classe Veterinario que contenha um método examinar() cujo parâmetro de entrada é um Animal, quando o animal for examinado ele deve emitir um som, passe os 3 animais com parâmetro. 
+
+/* Priscila e Josie - exercício 4 */
+
+<?php
+  class Animal{
+    public $nome;
+    public $idade;
+    public $som;
+
+    public function __construct($nome, $idade, $som){
+      $this->nome=$nome;
+      $this->idade=$idade;
+      $this->som=$som;
+    }
+
+    public function EmitirSom(){
+      echo "O som que o animal emite é $this->som.";
+    }
+
+    public function setsom($som){
+      $this->som=$som;
+    }
+
+    public function setnome($nome){
+      $this->nome=$nome;
+    }
+
+    public function setidade($idade){
+      $this->idade=$idade;
+    }
+
+    public function getsom(){
+      return $this->som;
+    }
+
+    public function getnome(){
+      return $this->nome;
+    }
+
+    public function getidade(){
+      return $this->idade;
+    }
+
+  }
+
+  class Vet{
+    public $verdade;
+    public function Examinar($animal){
+      echo "O animal foi examinado! ";
+      $this->verdade=true;
+    }
+  }
+
+  class Cachorro extends Animal{
+    public function Correr(){
+      echo "Correndo";
+    }
+
+    }
+  
+  class Cavalo extends Animal{
+    public function Correr(){
+      echo "Correndo";
+    }
+  }
+
+  class Preguica extends Animal{
+    public function SobeNaArvore(){
+      echo "Subindo na árvore";
+    }
+  }
+
+  $vet = new Vet;
+  $cachorro = new Cachorro("Totó", 3, "au au");
+  $vet->Examinar($cachorro);
+    if ($vet->verdade==true){
+      $cachorro->EmitirSom();
+    }
+  echo "\n";
+
+  $cavalo = new Cavalo("Zorro", 10, "iiiin hihihii");
+  $vet->Examinar($cavalo);
+    if ($vet->verdade==true){
+      $cavalo->EmitirSom();
+    }
+  echo "\n";
+
+  $preguica = new Preguica("Finnick", 1, "ZzZZzzZ");
+   $vet->Examinar($preguica);
+    if ($vet->verdade==true){
+      $preguica->EmitirSom();
+    }
+  echo "\n";
+
+  
+?>
